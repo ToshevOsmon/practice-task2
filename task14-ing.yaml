@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  name: go-app-ing
+  namespace: exam-o-toshev
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: mid-term-o-toshev.sts404.uz
+    http:
+      paths:
+      - backend:
+          service:
+            name: go-app
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer: {}

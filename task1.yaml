@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: go-app
+  name: go-app
+  namespace: exam-o-toshev
+spec:
+  containers:
+  - image: otoshev/task2-goapp:v1
+    name: go-app
+    env:
+    - name: ENVIRONMENT
+      valueFrom:
+        configMapKeyRef:
+          name: gp-app-envs
+          key: ENVIRONMENT
+    - name: LOG_LEVEL
+      valueFrom:
+        configMapKeyRef:
+          name: gp-app-envs
+          key: LOG_LEVEL
+    - name: DB_URI
+      valueFrom:
+        secretKeyRef:
+          name: db-secret
+          key: DB_URI
+    - name: GRPC_PORT
+      valueFrom:
+        configMapKeyRef:
+          name: gp-app-envs
+          key: GRPC_PORT
+    - name: POD_IP
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP        
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

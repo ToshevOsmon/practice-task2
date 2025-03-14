@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: "2025-03-14T17:39:16Z"
+  name: my-access-binding
+  namespace: exam-o-toshev
+  resourceVersion: "8465206"
+  uid: 3de86189-1785-4675-a688-630d9025ddc9
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: my-access
+subjects:
+- kind: ServiceAccount
+  name: osmon
+  namespace: exam-o-toshev

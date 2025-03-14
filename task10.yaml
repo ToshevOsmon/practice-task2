@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  env: development
+  grpc_port: "8080"
+  log_leveI: debug
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-03-14T15:21:37Z"
+  name: info
+  namespace: exam-o-toshev
+  resourceVersion: "8422503"
+  uid: 9eadc515-e0b0-4157-be23-4cd402bd1629

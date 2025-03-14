@@ -1,0 +1,1 @@
+kubectl auth can-i list pods --as=system:serviceaccount:exam-o-toshev:osmon -n exam-o-toshev 

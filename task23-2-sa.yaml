@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2025-03-14T17:37:07Z"
+  name: osmon
+  namespace: exam-o-toshev
+  resourceVersion: "8464632"
+  uid: d79c9b0e-4c65-4b02-ae04-53c58a94e1f2

@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: go-app
+  name: go-app
+  namespace: exam-o-toshev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: go-app
+    spec:
+      containers:
+      - image: otoshev/task2-goapp:v1
+        name: task2-goapp
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          failureThreshold: 30
+          periodSeconds: 10    
+        env:
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: go-app-envs
+              key: ENVIRONMENT
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: go-app-envs
+              key: LOG_LEVEL
+        - name: DB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: go-app-envs
+              key: DB_URI
+        - name: GRPC_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: go-app-envs
+              key: GRPC_PORT
+        - name: CPU
+          valueFrom:
+           resourceFieldRef:
+             containerName: task2-goapp
+             resource: requests.cpu
+        - name: MEMORY
+          valueFrom:
+           resourceFieldRef:
+             containerName: task2-goapp
+             resource: requests.memory       
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP  
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi    
+status: {}

@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  KEY: REJfVVJJ
+  VALUE: cG9zdGdyZXM6Ly9hZG1pbjpzdXBlcnNlY3JldEAxMC4xMC4xMC4xOjU0MzIvZXhhbS1kYg==
+kind: Secret
+metadata:
+  creationTimestamp: "2025-03-14T15:26:26Z"
+  name: db-secret
+  namespace: exam-o-toshev
+  resourceVersion: "8423579"
+  uid: 418008d7-917a-48f1-9d2f-839b5f6b7ff4
+type: Opaque

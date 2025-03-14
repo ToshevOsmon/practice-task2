@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2025-03-14T16:16:42Z"
+  generation: 1
+  labels:
+    app: go-app
+  name: go-app
+  namespace: exam-o-toshev
+  resourceVersion: "8438399"
+  uid: 63100386-e9f1-4b93-8a92-7450cf13a91d
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: go-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: go-app
+    spec:
+      containers:
+      - env:
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              key: ENVIRONMENT
+              name: go-app-envs
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              key: LOG_LEVEL
+              name: go-app-envs
+        - name: DB_URI
+          valueFrom:
+            configMapKeyRef:
+              key: DB_URI
+              name: go-app-envs
+        - name: GRPC_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: GRPC_PORT
+              name: go-app-envs
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        image: otoshev/task2-goapp:v1
+        imagePullPolicy: IfNotPresent
+        name: task2-goapp
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2025-03-14T16:16:43Z"
+    lastUpdateTime: "2025-03-14T16:16:43Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2025-03-14T16:16:42Z"
+    lastUpdateTime: "2025-03-14T16:16:43Z"
+    message: ReplicaSet "go-app-68fc498d7" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
