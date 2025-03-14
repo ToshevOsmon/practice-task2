@@ -1,0 +1,128 @@
+apiVersion: v1
+items:
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.233.68.234
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: node4
+    targetRef:
+      kind: Pod
+      name: flask-app-6454bcfb64-r9fzd
+      namespace: exam-o-toshev
+      uid: 74b0b6cb-dca5-4f3b-b05f-f9cd3b2f7eec
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2025-03-14T14:27:10Z"
+    creationTimestamp: "2025-03-14T14:27:10Z"
+    generateName: flask-app-
+    generation: 1
+    labels:
+      app: flask-app
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: flask-app
+    name: flask-app-m9ghp
+    namespace: exam-o-toshev
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: flask-app
+      uid: 80baba3d-ffdd-4d71-88d1-5d76080beda4
+    resourceVersion: "8409036"
+    uid: 745cab49-750b-471e-9023-e6023ab92add
+  ports:
+  - name: ""
+    port: 5000
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.233.67.58
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: node3
+    targetRef:
+      kind: Pod
+      name: frontend-app-799bbc55c4-zf8wc
+      namespace: exam-o-toshev
+      uid: 8e49bb34-dc2f-441e-a9c4-3174303f993b
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2025-03-14T15:52:06Z"
+    creationTimestamp: "2025-03-14T15:20:25Z"
+    generateName: frontend-app-
+    generation: 4
+    labels:
+      app: frontend-app
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: frontend-app
+    name: frontend-app-kdjlh
+    namespace: exam-o-toshev
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: frontend-app
+      uid: 93c8a833-ffe7-46b3-bc4d-f5a20cc23227
+    resourceVersion: "8430252"
+    uid: 61c59843-8518-4a87-ba6f-bfd476d6894d
+  ports:
+  - name: ""
+    port: 8080
+    protocol: TCP
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.233.65.47
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: node1
+    targetRef:
+      kind: Pod
+      name: go-app-6f78758f9d-st82c
+      namespace: exam-o-toshev
+      uid: f880fb0d-f7c0-4a9a-8828-391a37ab058d
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2025-03-14T17:25:44Z"
+    creationTimestamp: "2025-03-14T16:18:10Z"
+    generateName: go-app-
+    generation: 24
+    labels:
+      app: go-app
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: go-app
+    name: go-app-zl9dn
+    namespace: exam-o-toshev
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: go-app
+      uid: 27c70e5c-a6b1-4bd1-852a-57091a44286a
+    resourceVersion: "8460699"
+    uid: 620c4afa-d5af-4d8f-a118-7c1074b2b84d
+  ports:
+  - name: ""
+    port: 80
+    protocol: TCP
+kind: List
+metadata:
+  resourceVersion: ""

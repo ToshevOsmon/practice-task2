@@ -1,0 +1,1 @@
+kubectl get endpoints -n exam-o-toshev -o wide | awk '{print $2}'
